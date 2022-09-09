@@ -31,7 +31,7 @@ namespace CSVGameDataLoader
             }
         }
 
-        private void AddGame(int id, string title, string description, string developers, string platforms, string state)
+        public void AddGame(int id, string title, string description, string developers, string platforms, string state)
         {
             Game tempGame = new Game(blankGame);
 
@@ -43,6 +43,11 @@ namespace CSVGameDataLoader
             tempGame.state = state;
 
             gameDatabase.Add(tempGame);
+        }
+
+        public int ReturnIndexID()
+        {
+            return gameDatabase.Count + 1;
         }
     }
 }
