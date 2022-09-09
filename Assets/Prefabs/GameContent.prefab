@@ -333,6 +333,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manager: {fileID: 0}
+  _game:
+    id: 0
+    title: 
+    description: 
+    developers: 
+    platforms: 
+    state: 
+  _icon: {fileID: 0}
+  _title: {fileID: 3712186285366870968}
+  _tag: {fileID: 3712186286496258587}
 --- !u!114 &7378565822394392704
 MonoBehaviour:
   m_ObjectHideFlags: 0

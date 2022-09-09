@@ -11,11 +11,16 @@ namespace CSVGameDataLoader
     public class LoadExcel : MonoBehaviour
     {
         public Game blankGame;
-        public List<Game> gameDatabase = new List<Game>();
+        public List<Game> GameDatabase = new List<Game>();
+
+        public void Awake()
+        {
+            LoadGameData();
+        }
 
         public void LoadGameData()
         {
-            gameDatabase.Clear();
+            GameDatabase.Clear();
 
             List<Dictionary<string, object>> data = CSVReader.Read("GameDatabase");
             for (var i = 0; i < data.Count; i++)
@@ -42,12 +47,12 @@ namespace CSVGameDataLoader
             tempGame.platforms = platforms;
             tempGame.state = state;
 
-            gameDatabase.Add(tempGame);
+            GameDatabase.Add(tempGame);
         }
 
         public int ReturnIndexID()
         {
-            return gameDatabase.Count + 1;
+            return GameDatabase.Count + 1;
         }
     }
 }

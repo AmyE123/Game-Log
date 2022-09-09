@@ -1,9 +1,22 @@
 namespace GameLog
 {
+    using CSVGameDataLoader;
+    using TMPro;
     using UnityEngine;
 
     public class GameInfo : MonoBehaviour
     {
+        #region UI Elements
+        [SerializeField]
+        private TextMeshProUGUI _title;
+
+        [SerializeField]
+        private TextMeshProUGUI _description;
+
+        [SerializeField]
+        private Sprite _icon;
+        #endregion
+
         [SerializeField]
         private RectTransform rectTransform;
 
@@ -43,6 +56,15 @@ namespace GameLog
             RotateArrow();
         }
 
+        public void Toggle(bool IsCollapsed, Game game)
+        {
+            ToggleCollapseAnim(IsCollapsed);
+            _manager.IsGameInfoCollapsed = !_manager.IsGameInfoCollapsed;
+            RotateArrow();
+
+            FillInfo(game);
+        }
+
         private void ToggleCollapseAnim(bool IsCollapsed)
         {
             if (IsCollapsed)
@@ -55,9 +77,10 @@ namespace GameLog
             }
         }
 
-        private void FillInfo()
+        private void FillInfo(Game game)
         {
-            
+            _title.text = game.title; 
+            _description.text = game.description;
         }
     }
 }
